@@ -10,6 +10,7 @@ dias_semana = ["lunes", "martes", "miercoles",
 if dia in dias_semana and 1 <= num_dia <= 31 and 1 <= num_mes <= 12:
     """ luego establezco condiciones secundarias segun el dia ingresado donde se evaluaran
     y ejecutara el codigo especifico"""
+
     if dia == "lunes" or dia == "martes" or dia == "miercoles":
         examenes = input("se tomaron los examenes?(s/n): ").lower()
         if examenes == "s":
