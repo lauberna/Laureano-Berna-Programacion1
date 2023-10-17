@@ -195,3 +195,4 @@ kilometros_por_tanque = kilometros_por_litro * capacidad_tanque_litros
 tanques_necesarios = distancia_total_kilometros / kilometros_por_tanque
 print(
     f"Necesitarán {tanques_necesarios:.1f} tanques de combustible para el viaje.") """
+
