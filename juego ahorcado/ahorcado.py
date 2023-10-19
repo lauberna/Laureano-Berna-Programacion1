@@ -2,8 +2,6 @@ import sys
 sys.path.append("/Users/mac/Desktop/UTN/Programacion 1 tps/functions")
 import Functions
 
-
-
 # Variables necesarias para el juego
 words = ["Python", "lenguaje", "juego", "cadena", "escuela", "soledad", "programa", "alegría", "teclado", "ciencia", "Laureano Berna", "JavaScript", ]
 word = Functions.random_word(words)
@@ -16,8 +14,6 @@ for caracter in word:
         current_word.append(" ")  # Mantener el espacio
     else:
         current_word.append("_")  # Reemplazar letras por guion bajo
-
-print(current_word)
 
 print(
     f"Bienvenido al juego del ahorcado, tienes {lives} vidas para adivinar la palara")
