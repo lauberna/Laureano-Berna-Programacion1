@@ -111,7 +111,17 @@ def win_second_diagonal(carton):
             return True
     return False
 
+""" FUNCIONES TPN 5 """
+
+def validar_dni(dni):
+    return len(dni) in (7, 8) and dni.isdigit()
 
 
+def count_letters(string):
+    array_word = string.split()
+    return len(array_word[len(array_word)-1])
+
+def mult(a, b):
+    return a % b == 0
                 
 
