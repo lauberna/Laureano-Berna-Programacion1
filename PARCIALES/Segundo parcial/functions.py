@@ -28,27 +28,49 @@ def is_mutant(dna):
             else:
                 actual_counter = 1
 
-    # Busca en la diagonal PRINCIPAL
-    actual_counter = 1
-    for j in range(1, row):
-        if dna[j][j] == dna[j - 1][j - 1]:
-            actual_counter += 1
-            if actual_counter == 4:
-                secuence_counter += 1
-                break
-        else:
-            actual_counter = 1
 
-    # Busca en la diagonal SECUNDARIA
-    actual_counter = 1
-    for j in range(1, row):
-        if dna[j][len(dna[j]) - (1 + j)] == dna[j - 1][len(dna[j]) - j]:
-            actual_counter += 1
-            if actual_counter == 4:
-                secuence_counter += 1
-                break
-        else:
-            actual_counter = 1
+    # Busca cualquier secuencia de izquierda a derecha, tanto principal como secundarias, de hasta 4 letras
+    for i in range(-2,3):
+        actual_counter = 1
+        for j in range(1, row - abs(i)):
+            if i <= 0:
+                if dna[j+abs(i)][j] == dna[j+(abs(i)-1)][j-1]:
+                    actual_counter += 1
+                    if actual_counter == 4:
+                        secuence_counter += 1
+                        break
+                else:
+                    actual_counter = 1
+            else:
+                if dna[j][j + i] == dna[j-1][j]:
+                    actual_counter += 1
+                    if actual_counter == 4:
+                        secuence_counter += 1
+                        break
+                else:
+                    actual_counter = 1
+
+    # Busca cualquier secuencia de derecha a izquierda, tanto principal como secundarias, de hasta 4 letras
+    for i in range(-2, 3):
+        actual_counter = 1
+        for j in range(1, row - abs(i)):
+            if i <= 0:
+                if dna[j+abs(i)][5-j] == dna[j+(abs(i)-1)][6-j]:
+                    actual_counter += 1
+                    if actual_counter == 4:
+                        secuence_counter += 1
+                        break
+                else:
+                    actual_counter = 1
+            else:
+                if dna[j][5-j-i] == dna[j-1][6-j-i]:
+                    actual_counter += 1
+                    if actual_counter == 4:
+                        secuence_counter += 1
+                        break
+                else:
+                    actual_counter = 1
+
 
     print("Cantidad de secuencias encontradas:", secuence_counter)
     return secuence_counter >= 2
